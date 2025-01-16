@@ -34,13 +34,16 @@ System.out.println("The command is starting");
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (RobotContainer.controlcito.getL1ButtonPressed()) {
-      pivotSubsystem.moveToPositionOne();
-  }
-  if (RobotContainer.controlcito.getR1ButtonPressed()) {
+
+    if (RobotContainer.controlcito.getCrossButtonPressed()) {
       pivotSubsystem.moveToPositionCero();
   }
-
+  if (RobotContainer.controlcito.getCircleButtonPressed()) {
+      pivotSubsystem.moveToPositionOne();
+  }
+  if (RobotContainer.controlcito.getTriangleButton()) {
+    pivotSubsystem.moveToPositionTwo();
+}
   }
 
   // Called once the command ends or is interrupted.

@@ -10,10 +10,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import org.littletonrobotics.junction.Logger;
 import com.studica.frc.AHRS;
+import com.studica.frc.AHRS.NavXComType;
+
 import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import frc.robot.RobotContainer;
@@ -28,7 +31,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
   private final Encoder l_encoder = new Encoder(0, 1, false, CounterBase.EncodingType.k4X);
   private final Encoder r_encoder = new Encoder(2, 3, false, CounterBase.EncodingType.k4X);
  
-  private final AHRS navX = new AHRS(null, 0);//No sé si esté bien esto ojo//
+  private final AHRS navX = new AHRS(NavXComType.kMXP_SPI);//No sé si esté bien esto ojo//
 
 
 

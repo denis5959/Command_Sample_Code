@@ -30,7 +30,7 @@ public class PivotSubsystem extends SubsystemBase {
         pivotEncoder.setPosition(0.0);
 
         // Initialize the PID controller with P, I, D values (these need to be tuned for your setup)
-        pivotPID = new PIDController(0.015, 0.0007, 0.001);
+        pivotPID = new PIDController(0.025, 0.0008, 0.008);
         
         
     }
@@ -46,9 +46,11 @@ public class PivotSubsystem extends SubsystemBase {
     }
 
     public void moveToPositionOne() {
+        setTargetPosition(5.0);  // Replace with actual position
+    }
+    public void moveToPositionTwo() {
         setTargetPosition(10.0);  // Replace with actual position
     }
-
     @Override
     public void periodic() {
         // Calculate the output power based on the current encoder position and target position
