@@ -4,10 +4,11 @@
 
 package frc.robot;
 
+import frc.robot.Constants.PivotConstants;
 import frc.robot.commands.driveWithJoystick;
 import frc.robot.commands.positionCeroPID;
 import frc.robot.subsystems.DrivetrainSubsystem;
-import frc.robot.subsystems.PivotSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.TejuinoSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PS4Controller;
@@ -30,7 +31,7 @@ public class RobotContainer {
   public final static PS4Controller controlcito = new PS4Controller(0);
   
 
-private final PivotSubsystem pivotSubsystem = new PivotSubsystem();
+private final ElevatorSubsystem pivotSubsystem = new ElevatorSubsystem();
   private final positionCeroPID PIDstate = new positionCeroPID(pivotSubsystem);
 
   /** The container for the robot. Contalllins subsystems, OI devices, and commands. */
@@ -39,6 +40,7 @@ private final PivotSubsystem pivotSubsystem = new PivotSubsystem();
     configureButtonBindings();
     drivetrainSubsystem.setDefaultCommand(m_exampleCommand);
     pivotSubsystem.setDefaultCommand(PIDstate);
+    
   }
 
  private void configureButtonBindings(){

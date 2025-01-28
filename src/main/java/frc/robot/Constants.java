@@ -17,5 +17,11 @@ public final class Constants {
 
     public static final int leftSideConstant = 0;
     public static final int rightSideConstant = 1;
+
+  }
+  public static final class PivotConstants {
+
+    public static final int puertoLimite1 = 4;
+    public static final int puertoLimite2 = 5;
   }
 }

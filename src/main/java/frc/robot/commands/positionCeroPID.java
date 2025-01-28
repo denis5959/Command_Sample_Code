@@ -4,21 +4,22 @@
 
 package frc.robot.commands;
 
+import frc.robot.Robot;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.PivotSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
 public class positionCeroPID extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final PivotSubsystem pivotSubsystem;
+  private final ElevatorSubsystem pivotSubsystem;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public positionCeroPID(PivotSubsystem pivotSubsystem) {
+  public positionCeroPID(ElevatorSubsystem pivotSubsystem) {
     this.pivotSubsystem = pivotSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(pivotSubsystem);
@@ -35,15 +36,25 @@ System.out.println("The command is starting");
   @Override
   public void execute() {
 
-    if (RobotContainer.controlcito.getCrossButtonPressed()) {
-      pivotSubsystem.moveToPositionCero();
-  }
-  if (RobotContainer.controlcito.getCircleButtonPressed()) {
-      pivotSubsystem.moveToPositionOne();
-  }
-  if (RobotContainer.controlcito.getTriangleButton()) {
-    pivotSubsystem.moveToPositionTwo();
+   
+/*if(RobotContainer.controlcito.getR2Button()){
+  pivotSubsystem.increment(((RobotContainer.controlcito.getR2Axis())+1)/2);
+} else { */
+  if (RobotContainer.controlcito.getCrossButtonPressed()) {
+    pivotSubsystem.moveToPositionCero();
 }
+if (RobotContainer.controlcito.getCircleButtonPressed()) {
+    pivotSubsystem.moveToPositionOne();
+}
+if (RobotContainer.controlcito.getTriangleButton()) {
+  pivotSubsystem.moveToPositionTwo();
+}
+  
+  
+/* else{
+
+  pivotSubsystem.holdCurrentPosition();
+}}*/
   }
 
   // Called once the command ends or is interrupted.
